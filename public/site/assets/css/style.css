@@ -1,0 +1,36 @@
+.img {
+    width: 100%;
+    object-fit: fill;
+}
+
+/* Sobrescrever estilos padrão */
+.pagination .page-item.active .page-link {
+    background: #FF6831;
+    border: none;
+}
+/*
+.reply{
+    width: 50%;
+} 
+.reply:focus{
+    border: 1px solid #FF6831;
+    box-shadow: none;
+    outline: none;
+}
+.reply-form{
+    margin-top: 20px;
+    display: block;
+} */
+
+.botao{
+    background-color: #FF6831;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.botao:hover{
+    background-color: darken(#FF6831, 10%);
+}

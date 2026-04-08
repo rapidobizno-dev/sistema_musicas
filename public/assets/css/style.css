@@ -1,0 +1,20 @@
+.botao{
+    background-color: #FF6831;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.botao:hover{
+    background-color: #e65c29;
+}
+.link{
+    color: #FF6831;
+    text-decoration: none;
+}
+.link:hover{
+    color: #e65c29;
+    text-decoration: underline;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Radar Econômico de Angola - {{ now()->format('d/m/Y') }}</title>
+
+    <style>
+        #footer {
+            padding-top: 10px;
+            padding-bottom: 0px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .pylarge {
+            padding: 0.5px 0:
+        }
+
+        * {
+            font-size: 10;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header class="col-12 mt-2 row mb-5">
+
+                <div class="col-12">
+                    <img src="dashboard/images/logo_blue.png" alt="IMED" width="150" class="mt-3">
+                    <img src="" alt="" width="250">
+                </div>
+
+        <p class="text-left mt-2">
+            Luanda, Angola<br>
+            Telef. (+244) 222 693 507<br>
+            Email: mpanzu@julina.gov.ao<br>
+            Site: www.radareconomico.gov.ao<br>
+            NIF: <b>XXXXXXXXX</b><br>
+
+        </p>
+        {{-- <p class="text-right">
+            Exmo.(s) Sr.(s) <br>
+            {{ $client }} <br>
+            NIF: {{ $nif }} <br>
+
+        </p> --}}
+
+    </header>
+    <section class="col-12 mb-5">
+        <p class="text-center">
+           {{--  <b>Fatura Nº </b>{{ $code }} |
+            <b> Data:</b> {{   date('d/m/Y', strtotime($lastUpdate))    }} --}}
+            <h2>Relatório de Notícias</h2>
+        </p>
+        <hr class="pylarge bg-dark">
+
+        <table class="table table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th class="text-left">ID </th>
+                    <th>Título</th>
+                    <th>Subtítulo</th>
+                    <th>Data de Publicação</th>
+                </tr>
+            </thead>
+            <tbody>
+               @foreach ($news as $data)
+                   <tr class="text-center">
+                       <td class="text-left">{{ $data->id }}</td>
+                       <td>{{ $data->title }}</td>
+                       <td>{{ $data->subtitle }}</td>
+                       <td>{{ date('d/m/Y', strtotime($data->updated_at)) }}</td>
+                   </tr>
+               @endforeach
+            </tbody>
+
+        </table>
+       {{--  <hr class="pylarge bg-dark">
+        <table class="table table-striped">
+            <thead>
+                <tr class="text-center">
+                    <th class="text-left">Descrição</th>
+                    <th>Un</th>
+                    <th>Pr. Unitário</th>
+                    <th>Desc.</th>
+                    <th>IVA</th>
+                    <th>Total Líquido</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-center">
+                    <td class="text-left">{{ $service }}</td>
+                    <td>UN</td>
+                    <td>{!! number_format($value, 2, ',', '.') !!}</td>
+                    <td>0,00</td>
+                    <td>0,00</td>
+                    <td>{!! number_format($value, 2, ',', '.') !!}</td>
+                </tr>
+            </tbody>
+
+        </table> --}}
+    </section>
+
+    <footer class="col-12 mt-2 text-center" id="footer">
+
+        {{-- <div class="col-6 text-left">
+            <table class="table table-striped">
+                <tr>
+                    <th>Mercadoria/Serviços:</th>
+                    <td class="text-right">{!! number_format($value, 2, ',', '.') !!} </td>
+                </tr>
+                <tr>
+                    <th>Descontos Comerciais:</th>
+                    <td class="text-right">0,00</td>
+                </tr>
+                <tr>
+                    <th>Desconto Financeiro:</th>
+                    <td class="text-right">0,00</td>
+                </tr>
+                <tr>
+                    <th>IVA:</th>
+                    <td class="text-right">0,00</td>
+                </tr>
+
+            </table>
+
+            <hr class="pylarge bg-dark">
+            <table class="table table-striped">
+                <tr>
+                    <th>
+                        <h4>Total (AKZ):</h4>
+                    </th>
+                    <td>
+                        <h4 class="text-right"> {!! number_format($value, 2, ',', '.') !!}</h4>
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </div> --}}
+
+        <small class="text-left text-dark">
+            Documento Processado por Computador. <br>
+        </small>
+
+        {{-- <div class="col-12 mt-5">
+
+            <img src="dashboard/images/minttics.jpg" width="250">
+        </div> --}}
+
+    </footer>
+
+</body>
+
+</html>
