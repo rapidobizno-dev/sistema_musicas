@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\View;
 use App\Models\News;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\App;
+Use Illuminate\Support\Facades\Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -18,13 +19,19 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        View::composer('site.layout.header', function ($view) {
-            $headerNews = News::where('detach', 'destaque')
-                ->orderBy('created_at', 'desc')
-                ->take(5)
-                ->get();
+        view::composer('layouts._admin.header', function ($view) {
+            /* notifications */
+            $authUser = auth()->user();
+            $notifications = collect();
 
-            $view->with('headerNews', $headerNews);
+            if ($authUser) {
+                $notifications = $authUser->unreadNotifications()
+                    ->latest()
+                    ->limit(5)
+                    ->get();
+            }
+
+            $view->with('notifications', $notifications);
         });
         Carbon::setLocale('pt_BR');
     }
